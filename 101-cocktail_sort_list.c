@@ -32,44 +32,45 @@ int swap(listint_t **list, listint_t *first, listint_t *second)
 
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *first, *next;
-	int swapped = 1;
+listint_t *first, *next;
+int swapped = 1;
 
-	if (!list || !*list || !(*list)->next)
-		return;
+if (!list || !*list || !(*list)->next)
+	return;
 
-	while (swapped)
-	{
-		first = *list;
-		next = (*list)->next;
-		swapped = 0;
-		while (next && first)
-		{
-			if (first->n > next->n)
-			{
-				swapped = swap(list, first, next);
-				print_list(*list);
-			}
-			else
-			first = next;
-			next = first->next;
-		}
-		if (!swapped)
-			break;
-		next = first;
-		first = first->prev;
-		swapped = 0;
-		while (first != NULL)
-		{
-			if (first->n > next->n)
-			{
-				swapped = swap(list, first, next);
-				print_list(*list);
-			}
-			next = first;
-			first = next->prev;
-		}
-		if (!swapped)
-			break;
-	}
+while (swapped)
+{
+first = *list;
+next = (*list)->next;
+swapped = 0;
+do
+{
+if (first->n > next->n)
+{
+swapped = swap(list, first, next);
+print_list(*list);
 }
+else
+first = next;
+next = first->next;
+} while (next && first)
+if (!swapped)
+break;
+next = first;
+first = first->prev;
+swapped = 0;
+do
+{
+if (first->n > next->n)
+{
+swapped = swap(list, first, next);
+print_list(*list);
+}
+next = first;
+first = next->prev;
+} while (first != NULL)
+if (!swapped)
+break;
+}
+}
+
