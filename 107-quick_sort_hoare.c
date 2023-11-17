@@ -11,24 +11,24 @@
 
 size_t partition(int *array, int low, int high, int size)
 {
-	int i = low, j = high;
-	int pivot, temp;
+int i = low, j = high;
+int pivot, temp;
 
-	pivot = array[high];
+pivot = array[high];
 
-	while (1)
-	{
-		while (array[i] < pivot)
+while (1)
+{
+while (array[i] < pivot)
 			i++;
-		while (array[j] > pivot)
-			j--;
-		if (i >= j)
-			return (j);
-		temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
-		print_array(array, size);
-	}
+while (array[j] > pivot)
+	j--;
+if (i >= j)
+	return (j);
+temp = array[i];
+array[i] = array[j];
+array[j] = temp;
+print_array(array, size);
+}
 }
 
 /**
@@ -41,14 +41,14 @@ size_t partition(int *array, int low, int high, int size)
 
 void sort(int *array, int low, int high, size_t size)
 {
-	size_t part;
+size_t part;
 
-	if (low < high)
-	{
-		part = partition(array, low, high, size);
-		sort(array, low, part - 1, size);
-		sort(array, part + 1, high, size);
-	}
+if (low < high)
+{
+part = partition(array, low, high, size);
+sort(array, low, part - 1, size);
+sort(array, part + 1, high, size);
+}
 }
 
 
@@ -61,7 +61,7 @@ void sort(int *array, int low, int high, size_t size)
 
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (!array || size < 2)
-		return;
-	sort(array, 0, size - 1, size);
+if (!array || size < 2)
+	return;
+sort(array, 0, size - 1, size);
 }
