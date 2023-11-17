@@ -1,2 +1,2 @@
 # sorting_algorithms
-The implementation of Sorting Algorithms
+Sorting Algorithms implementations at ALX_SE
